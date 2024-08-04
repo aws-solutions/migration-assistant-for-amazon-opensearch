@@ -5,8 +5,6 @@ systemctl start docker
 git init
 release_tag=$(curl -s https://api.github.com/repos/opensearch-project/opensearch-migrations/releases/latest | jq -r ".tag_name")
 git remote add -f origin https://github.com/opensearch-project/opensearch-migrations.git
-git config core.sparseCheckout true
-echo -e 'deployment\nTrafficCapture\nFetchMigration\nVERSION' > .git/info/sparse-checkout
 git checkout tags/$release_tag
 
 cd deployment/cdk/opensearch-service-migration || exit
