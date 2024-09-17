@@ -50,16 +50,17 @@ The solution facilitates user comparisons of source and target traffic in terms 
 
 Deploying this solution with the default parameters builds the following environment in the AWS Cloud.
 
-![Architecture](AWSSolutionsArchitecture.png)
+<img width="818" alt="image" src="https://github.com/user-attachments/assets/1caf8f48-33eb-4b6a-b449-d2f8e3f539bb">
+
 
 The high-level process flow for the solution components deployed with the AWS CloudFormation template is as follows:
 
-1.	Traffic is directed to the existing cluster, reaching each coordinator node.
-2.	A Capture Proxy is added before each coordinator node in the cluster, allowing for traffic capture and storage in Amazon MSK.
-3.	With continuous traffic capture in place, the user initiates a historical backfill.
-4.	Following the backfill, the user replays the captured traffic using a Replayer.
-5.	The user evaluates the outcomes from routing traffic to both the original and the new cluster.
-6.	After confirming the new cluster’s functionality meets expectations, the user dismantles all related stacks, retaining only the new cluster’s setup. Additionally, the user can retire and discard the old cluster’s legacy infrastructure and all Migration Assistant for Amazon OpenSearch Service stacks, keeping only the new cluster.
+1. Client traffic is directed to the existing cluster.
+2. An ALB with Capture Proxies relaying traffic to source while replicating to Amazon MSK.
+3. With continuous traffic capture in place, a Reindex-from-Snapshot (RFS) is initiated by the user via Migration Console.
+4. Once Reindex-from-Snapshot is complete, traffic captured is replayed from MSK by Traffic Replayer.
+5. Performance and behavior of traffic sent to source and target clusters are compared by reviewing logs and metrics.
+6. After confirming the target cluster’s functionality meets expectations the use redirects clients to new target.
 
 
 ## Deployment
