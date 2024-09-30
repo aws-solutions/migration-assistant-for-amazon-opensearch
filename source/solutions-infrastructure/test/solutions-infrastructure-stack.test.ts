@@ -16,6 +16,6 @@ test('EC2 bootstrap instance is created', () => {
   });
   const template = Template.fromStack(stack);
   template.hasResourceProperties('AWS::EC2::Instance', {
-    InstanceType: "t2.large"
+    InstanceType: "t3.large"
   });
 });

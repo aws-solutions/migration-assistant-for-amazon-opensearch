@@ -148,7 +148,7 @@ export class SolutionsInfrastructureStack extends Stack {
     })
     const solutionsUserAgent = `AwsSolution/${props.solutionId}/${props.solutionVersion}`
     const cfnInitConfig : InitElement[] = [
-      InitCommand.shellCommand(`echo "export MIGRATIONS_APP_REGISTRY_ARN=${appRegistryAppARN}; export CUSTOM_REPLAYER_USER_AGENT=${solutionsUserAgent}" > /etc/profile.d/solutionsEnv.sh`),
+      InitCommand.shellCommand(`echo "export MIGRATIONS_APP_REGISTRY_ARN=${appRegistryAppARN}; export MIGRATIONS_USER_AGENT=${solutionsUserAgent}" > /etc/profile.d/solutionsEnv.sh`),
       bootstrapFile
     ]
 
@@ -166,7 +166,7 @@ export class SolutionsInfrastructureStack extends Stack {
     new Instance(this, 'BootstrapEC2Instance', {
       vpc: vpc,
       instanceName: `bootstrap-${stageParameter.valueAsString}-instance`,
-      instanceType: InstanceType.of(InstanceClass.T2, InstanceSize.LARGE),
+      instanceType: InstanceType.of(InstanceClass.T3, InstanceSize.LARGE),
       machineImage: MachineImage.latestAmazonLinux2023(),
       role: bootstrapRole,
       blockDevices: [

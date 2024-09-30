@@ -50,3 +50,6 @@ requests-aws4auth is under MIT License (MIT License)
 rsa under the Apache Software License (Apache-2.0)
 s3transfer under the Apache Software License (Apache License 2.0)
 xmltodict under the MIT License (MIT)
+coloredlogs under the MIT License (MIT)
+humanfriendly under the MIT License (MIT)
+prometheus_client under Apache Software License Apache 2.0

@@ -50,8 +50,7 @@ The solution facilitates user comparisons of source and target traffic in terms 
 
 Deploying this solution with the default parameters builds the following environment in the AWS Cloud.
 
-<img width="818" alt="image" src="https://github.com/user-attachments/assets/1caf8f48-33eb-4b6a-b449-d2f8e3f539bb">
-
+<img width="818" alt="image" src="AWSSolutionsArchitecture.png">
 
 The high-level process flow for the solution components deployed with the AWS CloudFormation template is as follows:
 
@@ -61,7 +60,6 @@ The high-level process flow for the solution components deployed with the AWS Cl
 4. Once Reindex-from-Snapshot is complete, traffic captured is replayed from MSK by Traffic Replayer.
 5. Performance and behavior of traffic sent to source and target clusters are compared by reviewing logs and metrics.
 6. After confirming the target cluster’s functionality meets expectations the use redirects clients to new target.
-
 
 ## Deployment
 

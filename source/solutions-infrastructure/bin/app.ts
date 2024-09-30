@@ -28,7 +28,7 @@ const getProps = (): SolutionsInfrastructureStackProps => {
 
   // Uncomment for local testing
   // const codeBucket = 'unknown';
-  // const solutionVersion = "1.0.0";
+  // const solutionVersion = "2.0.0";
   // const solutionId = 'SO0290';
   // const solutionName = 'migration-assistant-for-amazon-opensearch';
   // const description = `(${solutionId}) - The AWS CloudFormation template for deployment of the ${solutionName}. Version ${solutionVersion}`;
